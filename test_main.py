@@ -1,7 +1,5 @@
 import pytest
 
-x = 21.7
-
-def test_function(x):
-    y = function(x)
-    assert(y==x)
+def test_function():
+    y = function(21.7)
+    assert(y==21.7)
