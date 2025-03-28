@@ -29,7 +29,7 @@ jobs:
       - name: checkout data
         uses: actions/checkout@v4
       - name: run script
-        runs: python main.py
+        run: python main.py
       - uses: actions/upload-artifact@v4
         with:
           name: test
