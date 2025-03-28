@@ -23,26 +23,26 @@ jobs:
       - name: test
         run: pytest
 
-make_file:
-   needs: test
-   runs-on: ubuntu-latest
-   steps:
-     - name: checkout data
-       uses: actions/checkout@v4
-     - name: run script
-       runs: python main.py
-     - uses: actions/upload-artifact@v4
-       with:
-         name: test.txt
-         path: test.txt
+  make_file:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout data
+        uses: actions/checkout@v4
+      - name: run script
+        runs: python main.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test.txt
+          path: test.txt
 
   check_file:
-   needs: make_file
-   runs-on: ubuntu-latest
-   steps:
-     - name: checkout repository
-       uses: actions/checkout@v4
-     - uses: actions/download-artifact@v4
-       with:
-         name: test.txt
-     - run: cat test.txt
+    needs: make_file
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: test.txt
+      - run: cat test.txt
