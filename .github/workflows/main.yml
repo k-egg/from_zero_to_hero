@@ -6,10 +6,18 @@ jobs:
     steps:
      - run: echo hello world
   test:
+    needs: greeting
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       py_version: ['3.9','3.10','3.11']
     steps:
       - name: checkout data
         uses: actions/checkout@v4
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{py_version}}
       - name: install pytest
         run: pip install -U pytest
       - name: test
