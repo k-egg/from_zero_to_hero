@@ -1,6 +1,6 @@
 import pytest
 
-data = [1,2,3,4,5]
+data = [21.7]
 
 def test_function(x):
     y = function(x)
