@@ -22,7 +22,8 @@ jobs:
         run: pip install -U pytest
       - name: test
         run: pytest
-  make_file:
+
+make_file:
    needs: test
    runs-on: ubuntu-latest
    steps:
