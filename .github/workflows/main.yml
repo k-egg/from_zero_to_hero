@@ -5,3 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run: echo hello world
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout data
+        run: actions/checkout@v4
+      - name: test
+        run: pytest
